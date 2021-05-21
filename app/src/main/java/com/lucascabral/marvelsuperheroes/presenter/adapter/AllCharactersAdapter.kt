@@ -1,15 +1,11 @@
 package com.lucascabral.marvelsuperheroes.presenter.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.lucascabral.marvelsuperheroes.R
 import com.lucascabral.marvelsuperheroes.databinding.ItemCharacterBinding
 import com.lucascabral.marvelsuperheroes.network.model.Character
 
@@ -21,8 +17,8 @@ class AllCharactersAdapter: PagingDataAdapter<Character, AllCharactersAdapter.My
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = ItemCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MyViewHolder(view)
+        val viewBinding = ItemCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyViewHolder(viewBinding)
     }
 
     inner class MyViewHolder(private val binding: ItemCharacterBinding): RecyclerView.ViewHolder(binding.root) {
