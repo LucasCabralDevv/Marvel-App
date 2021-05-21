@@ -1,8 +1,7 @@
 package com.lucascabral.marvelsuperheroes.presenter.di
 
+import com.lucascabral.marvelsuperheroes.BuildConfig
 import com.lucascabral.marvelsuperheroes.extension.md5
-import com.lucascabral.marvelsuperheroes.helper.API_KEY
-import com.lucascabral.marvelsuperheroes.helper.PRIVATE_KEY
 import com.lucascabral.marvelsuperheroes.network.MarvelService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -34,9 +33,9 @@ val networkModule = module {
             val urlOriginal = chainRequest.url()
             val ts = (Calendar.getInstance(TimeZone.getTimeZone("UTC")).timeInMillis / 1000L).toString()
             val httpUrl = urlOriginal.newBuilder()
-                .addQueryParameter("apikey", API_KEY)
+                .addQueryParameter("apikey", BuildConfig.API_KEY)
                 .addQueryParameter("ts", ts)
-                .addQueryParameter("hash", "$ts$PRIVATE_KEY$API_KEY".md5())
+                .addQueryParameter("hash", "$ts${BuildConfig.PRIVATE_KEY}${BuildConfig.API_KEY}".md5())
                 .build()
 
             chain.proceed(chainRequest.newBuilder().url(httpUrl).build())
