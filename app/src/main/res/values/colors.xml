@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="main_background">#FFE5E5</color>
+    <color name="red_toolbar">#CC0000</color>
+    <color name="redDark_toolbar">#990000</color>
+    <color name="redDark2_toolbar">#7f0000</color>
 </resources>

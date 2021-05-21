@@ -16,7 +16,7 @@ class CharacterPagingSource(private val apiService: MarvelService): PagingSource
 
             val page: Int = params.key ?: FIRST_PAGE_INDEX
             val response = apiService.getCharacters(page)
-            val nextPage: Int = response.data.offset++
+            val nextPage: Int = response.data.offset + 1
 
             LoadResult.Page(data = response.data.results, prevKey = null, nextKey = nextPage)
 
