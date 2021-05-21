@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lucascabral.marvelsuperheroes.R
+import com.lucascabral.marvelsuperheroes.databinding.ItemCharacterBinding
 import com.lucascabral.marvelsuperheroes.network.model.Character
 
 class AllCharactersAdapter: PagingDataAdapter<Character, AllCharactersAdapter.MyViewHolder>(DiffUtilCallBack()) {
@@ -20,19 +21,19 @@ class AllCharactersAdapter: PagingDataAdapter<Character, AllCharactersAdapter.My
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_character, parent, false)
+        val view = ItemCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(view)
     }
 
-    inner class MyViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    inner class MyViewHolder(private val binding: ItemCharacterBinding): RecyclerView.ViewHolder(binding.root) {
 
-        private val imageCharacter: ImageView = view.findViewById(R.id.characterImage)
-        private val nameCharacter: TextView = view.findViewById(R.id.characterName)
 
         fun bind(data: Character) {
-            nameCharacter.text = data.name
-            val uri = data.thumbnail.path+"."+data.thumbnail.extension
-            Glide.with(imageCharacter).load(uri).into(imageCharacter)
+            with(binding) {
+                characterName.text = data.name
+                val uri = data.thumbnail.path+"."+data.thumbnail.extension
+                Glide.with(characterImage).load(uri).into(characterImage)
+            }
         }
     }
 
