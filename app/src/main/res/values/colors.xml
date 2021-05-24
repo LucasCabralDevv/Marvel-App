@@ -12,4 +12,5 @@
     <color name="red_toolbar">#CC0000</color>
     <color name="redDark_toolbar">#990000</color>
     <color name="redDark2_toolbar">#7f0000</color>
+    <color name="warm_grey">#8d8c8c</color>
 </resources>
