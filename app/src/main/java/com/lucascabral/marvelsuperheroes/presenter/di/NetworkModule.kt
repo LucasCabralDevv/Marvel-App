@@ -17,16 +17,12 @@ val networkModule = module {
 
     single(named("BASE_URL")) { "http://gateway.marvel.com/v1/public/" }
 
-    /*
     single {
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
-        logging
-    } */
 
-    single {
         val client = OkHttpClient.Builder()
-        //client.addInterceptor(get())
+        client.addInterceptor(logging)
         client.addInterceptor { chain ->
 
             val chainRequest = chain.request()
