@@ -2,7 +2,10 @@ package com.lucascabral.marvelsuperheroes.presenter.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.lucascabral.marvelsuperheroes.databinding.ActivityAllCharactersBinding
 import com.lucascabral.marvelsuperheroes.presenter.adapter.AllCharactersAdapter
@@ -31,6 +34,24 @@ class AllCharactersActivity : AppCompatActivity() {
             setHasFixedSize(true)
             allCharactersAdapter = AllCharactersAdapter()
             adapter = allCharactersAdapter
+
+            allCharactersAdapter.addLoadStateListener { loadState ->
+                val isListEmpty =
+                    loadState.refresh is LoadState.NotLoading && allCharactersAdapter.itemCount == 0
+                showEmptyList(isListEmpty)
+
+                viewBinding.progressBar.isVisible = loadState.source.refresh is LoadState.Loading
+            }
+        }
+    }
+
+    private fun showEmptyList(listEmpty: Boolean) {
+        if (listEmpty) {
+            viewBinding.emptyList.visibility = View.VISIBLE
+            viewBinding.charactersRecyclerView.visibility = View.GONE
+        } else {
+            viewBinding.emptyList.visibility = View.GONE
+            viewBinding.charactersRecyclerView.visibility = View.VISIBLE
         }
     }
 
