@@ -7,12 +7,8 @@ import com.lucascabral.marvelsuperheroes.network.MarvelService
 import com.lucascabral.marvelsuperheroes.network.model.Character
 import com.lucascabral.marvelsuperheroes.repository.paging.CharacterPagingSource
 import kotlinx.coroutines.flow.Flow
-import org.koin.core.KoinComponent
-import org.koin.core.inject
 
-class CharactersRepository: KoinComponent {
-
-     private val apiService: MarvelService by inject()
+class CharactersRepository(private val apiService: MarvelService) {
 
      fun getResultStream(): Flow<PagingData<Character>> {
           return Pager(config = PagingConfig(pageSize = pageSize, maxSize = pageMax),

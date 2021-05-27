@@ -5,5 +5,5 @@ import org.koin.dsl.module
 
 val repositoryModule = module {
 
-    single { CharactersRepository() }
+    single { CharactersRepository(get()) }
 }
