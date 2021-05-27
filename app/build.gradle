@@ -54,9 +54,7 @@ dependencies {
     // Koin & Mock test Dependencies
     testImplementation "org.koin:koin-test:$koin_version"
     testImplementation "com.nhaarman:mockito-kotlin:$mockito_version"
-
-    testImplementation 'io.mockk:mockk:1.10.6'
-    testImplementation 'android.arch.core:core-testing:1.1.1'
+    testImplementation "io.mockk:mockk:$mockk_version"
 
     // Retrofit Dependencies
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
