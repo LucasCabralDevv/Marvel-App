@@ -1,11 +1,11 @@
-package com.lucascabral.marvelsuperheroes.repository
+package com.lucascabral.marvelsuperheroes.data.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.lucascabral.marvelsuperheroes.network.MarvelService
-import com.lucascabral.marvelsuperheroes.network.model.Character
-import com.lucascabral.marvelsuperheroes.repository.paging.CharacterPagingSource
+import com.lucascabral.marvelsuperheroes.data.api.MarvelService
+import com.lucascabral.marvelsuperheroes.data.network.model.character.Character
+import com.lucascabral.marvelsuperheroes.data.repository.paging.CharacterPagingSource
 import kotlinx.coroutines.flow.Flow
 
 class CharactersRepository(private val apiService: MarvelService) {

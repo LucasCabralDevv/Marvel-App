@@ -1,6 +1,6 @@
-package com.lucascabral.marvelsuperheroes.network
+package com.lucascabral.marvelsuperheroes.data.api
 
-import com.lucascabral.marvelsuperheroes.network.model.MarvelResponse
+import com.lucascabral.marvelsuperheroes.data.network.model.character.MarvelResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

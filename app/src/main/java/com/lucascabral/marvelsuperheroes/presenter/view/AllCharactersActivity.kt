@@ -1,12 +1,17 @@
 package com.lucascabral.marvelsuperheroes.presenter.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
+import com.lucascabral.marvelsuperheroes.R
 import com.lucascabral.marvelsuperheroes.databinding.ActivityAllCharactersBinding
 import com.lucascabral.marvelsuperheroes.presenter.adapter.AllCharactersAdapter
 import com.lucascabral.marvelsuperheroes.presenter.viewmodel.AllCharactersViewModel
@@ -26,6 +31,24 @@ class AllCharactersActivity : AppCompatActivity() {
 
         initRecyclerView()
         initViewModel()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.marvel_brasil_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.marvelMenu -> {
+                val intent = Intent(this, MarvelYoutubeActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     private fun initRecyclerView() {

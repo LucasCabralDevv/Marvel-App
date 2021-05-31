@@ -1,4 +1,4 @@
-package com.lucascabral.marvelsuperheroes.network.model
+package com.lucascabral.marvelsuperheroes.data.network.model.character
 
 data class Data(
     var offset: Int,

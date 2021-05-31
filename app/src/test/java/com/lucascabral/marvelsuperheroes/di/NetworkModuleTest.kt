@@ -1,7 +1,7 @@
 package com.lucascabral.marvelsuperheroes.di
 
-import com.lucascabral.marvelsuperheroes.network.MarvelService
-import com.lucascabral.marvelsuperheroes.presenter.di.networkModule
+import com.lucascabral.marvelsuperheroes.data.api.MarvelService
+import com.lucascabral.marvelsuperheroes.presenter.di.networkMarvelModule
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
 import org.junit.After
@@ -26,7 +26,7 @@ class NetworkModuleTest : KoinTest {
 
     @Before
     fun setup() {
-        startKoin { modules(listOf(networkModule)) }
+        startKoin { modules(listOf(networkMarvelModule)) }
     }
 
     @After

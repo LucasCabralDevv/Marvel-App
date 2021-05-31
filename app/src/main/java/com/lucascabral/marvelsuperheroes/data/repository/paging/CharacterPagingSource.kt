@@ -1,9 +1,9 @@
-package com.lucascabral.marvelsuperheroes.repository.paging
+package com.lucascabral.marvelsuperheroes.data.repository.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.lucascabral.marvelsuperheroes.network.MarvelService
-import com.lucascabral.marvelsuperheroes.network.model.Character
+import com.lucascabral.marvelsuperheroes.data.api.MarvelService
+import com.lucascabral.marvelsuperheroes.data.network.model.character.Character
 
 class CharacterPagingSource(private val apiService: MarvelService): PagingSource<Int, Character>() {
 

@@ -4,6 +4,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
+
     <application
         android:name=".presenter.MarvelApp"
         android:allowBackup="true"
@@ -13,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MarvelSuperHeroes"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".presenter.view.MarvelYoutubeActivity"
+            android:parentActivityName=".presenter.view.AllCharactersActivity" />
         <activity
             android:name=".presenter.view.CharacterDetailsActivity"
             android:parentActivityName=".presenter.view.AllCharactersActivity" />
