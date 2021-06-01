@@ -1,5 +1,6 @@
 package com.lucascabral.marvelsuperheroes.data.network.remote
 
+import com.lucascabral.marvelsuperheroes.BuildConfig
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -8,6 +9,10 @@ class YoutubeRetrofit {
 
     companion object {
         private lateinit var retrofit: Retrofit
+        private const val PART = "snippet"
+        private const val ORDER = "date"
+        private const val MAX_RESULTS = "50"
+        private const val CHANNEL_ID = "UCItRs-h8YU1wRRfP637614w"
         private const val BASE_URL_YOUTUBE = "https://www.googleapis.com/youtube/v3/"
 
         private fun getRetrofitInstance(): Retrofit {
@@ -17,11 +22,11 @@ class YoutubeRetrofit {
                 val chainRequest = chain.request()
                 val urlOriginal = chainRequest.url()
                 val httpUrl = urlOriginal.newBuilder()
-                    .addQueryParameter("part", "snippet")
-                    .addQueryParameter("order", "date")
-                    .addQueryParameter("maxResults", "20")
-                    .addQueryParameter("key", "AIzaSyBJZ_BdXITaCdT7Cyz4VY8CkZjn-89FNng")
-                    .addQueryParameter("channelId", "UCItRs-h8YU1wRRfP637614w")
+                    .addQueryParameter("part", PART)
+                    .addQueryParameter("order", ORDER)
+                    .addQueryParameter("maxResults", MAX_RESULTS)
+                    .addQueryParameter("key", BuildConfig.YOUTUBE_KEY)
+                    .addQueryParameter("channelId", CHANNEL_ID)
                     .build()
 
                 chain.proceed(chainRequest.newBuilder().url(httpUrl).build())

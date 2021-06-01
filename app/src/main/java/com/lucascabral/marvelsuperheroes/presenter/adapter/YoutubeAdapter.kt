@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.lucascabral.marvelsuperheroes.data.network.model.video.VideoResponse
 import com.lucascabral.marvelsuperheroes.databinding.ItemVideoBinding
+import com.lucascabral.marvelsuperheroes.presenter.model.VideoUiModel
 import com.lucascabral.marvelsuperheroes.presenter.view.YoutubePlayerActivity
 
-class YoutubeAdapter(private val videos: List<VideoResponse>) :
+class YoutubeAdapter(private val videos: List<VideoUiModel>) :
     RecyclerView.Adapter<YoutubeAdapter.YoutubeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): YoutubeViewHolder {

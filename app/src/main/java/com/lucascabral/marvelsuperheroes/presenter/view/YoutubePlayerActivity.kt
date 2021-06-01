@@ -5,6 +5,7 @@ import android.widget.Toast
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
+import com.lucascabral.marvelsuperheroes.BuildConfig
 import com.lucascabral.marvelsuperheroes.R
 import com.lucascabral.marvelsuperheroes.databinding.ActivityYoutubePlayerBinding
 
@@ -21,7 +22,7 @@ class YoutubePlayerActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitialized
         val bundle: Bundle? = intent.extras
         bundle?.let {
             videoId = bundle.getString(VIDEO_ID).toString()
-            playerBinding.youtubePlayer.initialize("AIzaSyBJZ_BdXITaCdT7Cyz4VY8CkZjn-89FNng", this)
+            playerBinding.youtubePlayer.initialize(BuildConfig.YOUTUBE_KEY, this)
         }
     }
 
@@ -32,7 +33,7 @@ class YoutubePlayerActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitialized
     ) {
         player?.setFullscreen(true)
         player?.setShowFullscreenButton(false)
-        if (!restored) player?.cueVideo(videoId)
+        player?.cueVideo(videoId)
     }
 
     override fun onInitializationFailure(

@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/padrao" />
+        app:srcCompat="@drawable/default_player"
+        android:contentDescription="@string/default_image_player_content_description" />
 
     <TextView
         android:id="@+id/titleTextView"

@@ -3,4 +3,5 @@
     android:layout_width="match_parent"
     android:layout_height="1dp"
     android:background="@color/warm_grey"
-    android:scaleType="fitXY"/>
+    android:scaleType="fitXY"
+    android:contentDescription="@string/divisor_content_description" />

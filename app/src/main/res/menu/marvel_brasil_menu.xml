@@ -6,6 +6,6 @@
         android:id="@+id/marvelMenu"
         android:title="@string/youtube_title_menu"
         app:showAsAction="always"
-        android:icon="@drawable/grande1"
+        android:icon="@drawable/youtube"
         />
 </menu>
