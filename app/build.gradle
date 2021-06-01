@@ -82,4 +82,7 @@ dependencies {
 
     //Youtube Dependency
     implementation files("libs/YouTubeAndroidPlayerApi.jar")
+
+    // Lottie Dependency
+    implementation "com.airbnb.android:lottie:$lottie_version"
 }

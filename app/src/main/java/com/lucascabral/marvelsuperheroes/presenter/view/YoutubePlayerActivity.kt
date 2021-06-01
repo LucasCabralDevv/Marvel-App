@@ -1,6 +1,7 @@
 package com.lucascabral.marvelsuperheroes.presenter.view
 
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toast
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
@@ -16,6 +17,7 @@ class YoutubePlayerActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitialized
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         playerBinding = ActivityYoutubePlayerBinding.inflate(layoutInflater)
         setContentView(playerBinding.root)
 
