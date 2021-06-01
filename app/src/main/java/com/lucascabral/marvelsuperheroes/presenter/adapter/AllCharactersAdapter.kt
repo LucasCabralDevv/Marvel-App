@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lucascabral.marvelsuperheroes.databinding.ItemCharacterBinding
-import com.lucascabral.marvelsuperheroes.network.model.Character
+import com.lucascabral.marvelsuperheroes.data.network.model.character.Character
 import com.lucascabral.marvelsuperheroes.presenter.view.CharacterDetailsActivity
 
 class AllCharactersAdapter: PagingDataAdapter<Character, AllCharactersAdapter.MyViewHolder>(DiffUtilCallBack()) {

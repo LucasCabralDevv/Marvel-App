@@ -26,6 +26,7 @@ android {
         debug {
             buildConfigField("String", "API_KEY", "\"426a8a3c32e2543316228982d5e3d552\"")
             buildConfigField("String", "PRIVATE_KEY", "\"3d286fee9404e7f0c565a623ccd54871b179a2b6\"")
+            buildConfigField("String", "YOUTUBE_KEY", "\"AIzaSyBJZ_BdXITaCdT7Cyz4VY8CkZjn-89FNng\"")
         }
     }
     compileOptions {
@@ -78,4 +79,7 @@ dependencies {
 
     // Glide Dependency
     implementation "com.github.bumptech.glide:glide:$glide_version"
+
+    //Youtube Dependency
+    implementation files("libs/YouTubeAndroidPlayerApi.jar")
 }
