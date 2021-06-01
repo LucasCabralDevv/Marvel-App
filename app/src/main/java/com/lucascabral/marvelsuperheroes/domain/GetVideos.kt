@@ -1,5 +1,6 @@
 package com.lucascabral.marvelsuperheroes.domain
 
+import com.lucascabral.marvelsuperheroes.data.network.model.video.VideoResponse
 import com.lucascabral.marvelsuperheroes.data.repository.YoutubeVideoRepository
 import com.lucascabral.marvelsuperheroes.domain.model.Video
 import java.lang.Exception
@@ -7,7 +8,7 @@ import java.lang.Exception
 class GetVideos(
     private val videoRepository: YoutubeVideoRepository
 ): GetVideosUseCase {
-    override suspend fun invoke(): List<Video> = try {
+    override suspend fun invoke(): List<VideoResponse> = try {
         videoRepository.getVideos()
     } catch (ex: Exception) {
         listOf()
@@ -15,5 +16,5 @@ class GetVideos(
 }
 
 interface GetVideosUseCase {
-    suspend operator fun invoke(): List<Video>
+    suspend operator fun invoke(): List<VideoResponse>
 }

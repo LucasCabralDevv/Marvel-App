@@ -4,13 +4,8 @@ import com.lucascabral.marvelsuperheroes.data.network.model.video.SnippetThumbna
 import com.lucascabral.marvelsuperheroes.domain.model.Video
 
 data class VideoUiModel(
+    val channelId: String,
     val title: String,
     val description: String,
     val thumbnails: SnippetThumbnails
-)
-
-fun Video.toVideoUiModel() = VideoUiModel(
-    title = this.title,
-    description = this.description,
-    thumbnails = this.thumbnails
 )

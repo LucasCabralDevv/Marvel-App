@@ -5,5 +5,5 @@
     <string name="no_results">No results 😓</string>
     <string name="youtube_title_menu">Marvel Youtube</string>
     <string name="title_youtube_toolbar">Youtube Marvel</string>
-    <string name="error_initialization_player">Erro ao iniciar o Player!</string>
+    <string name="player_youtube_error">Failed to start the video 😓</string>
 </resources>

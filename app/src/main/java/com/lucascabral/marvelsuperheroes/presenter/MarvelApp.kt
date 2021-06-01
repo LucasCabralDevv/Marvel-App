@@ -15,13 +15,8 @@ class MarvelApp : Application() {
             androidContext(this@MarvelApp)
             modules(
                 listOf(
-                    networkMarvelModule,
-                    repositoryMarvelModule,
-                    viewModelMarvelModule,
-                    networkYoutubeModule,
-                    repositoryYoutubeModule,
-                    domainYoutubeModule,
-                    viewModelYoutubeModule
+                    marvelModule,
+                    youtubeModule
                 )
             )
         }

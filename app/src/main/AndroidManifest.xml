@@ -19,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MarvelSuperHeroes"
         android:usesCleartextTraffic="true">
+        <activity android:name=".presenter.view.YoutubePlayerActivity"></activity>
         <activity
             android:name=".presenter.view.MarvelYoutubeActivity"
             android:parentActivityName=".presenter.view.AllCharactersActivity" />

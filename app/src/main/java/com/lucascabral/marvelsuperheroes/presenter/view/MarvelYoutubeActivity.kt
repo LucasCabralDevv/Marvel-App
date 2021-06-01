@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucascabral.marvelsuperheroes.R
+import com.lucascabral.marvelsuperheroes.data.network.model.video.VideoResponse
 import com.lucascabral.marvelsuperheroes.databinding.ActivityMarvelYoutubeBinding
 import com.lucascabral.marvelsuperheroes.presenter.adapter.YoutubeAdapter
 import com.lucascabral.marvelsuperheroes.presenter.model.VideoUiModel
 import com.lucascabral.marvelsuperheroes.presenter.viewmodel.MarvelYoutubeViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MarvelYoutubeActivity : AppCompatActivity() {
@@ -25,6 +27,7 @@ class MarvelYoutubeActivity : AppCompatActivity() {
         viewModelYoutube.videos.observe(this, Observer { videosList ->
             setupRecyclerView(videosList)
         })
+        viewModelYoutube.getVideos()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -32,7 +35,7 @@ class MarvelYoutubeActivity : AppCompatActivity() {
         return true
     }
 
-    private fun setupRecyclerView(videos: List<VideoUiModel>) {
+    private fun setupRecyclerView(videos: List<VideoResponse>) {
         binding.youtubeRecyclerView.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@MarvelYoutubeActivity)
@@ -46,9 +49,5 @@ class MarvelYoutubeActivity : AppCompatActivity() {
             setDisplayShowHomeEnabled(true)
             setDisplayHomeAsUpEnabled(true)
         }
-    }
-
-    companion object {
-        private const val GOOGLE_API_KEY = "AIzaSyBJZ_BdXITaCdT7Cyz4VY8CkZjn-89FNng"
     }
 }

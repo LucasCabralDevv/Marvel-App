@@ -11,9 +11,3 @@ data class Snippet(
     val channelTitle: String,
     val publishTime: String
 )
-
-fun Snippet.toVideoModel() = Video(
-    title = this.title,
-    description = this.description,
-    thumbnails = this.thumbnails
-)
