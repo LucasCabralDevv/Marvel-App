@@ -3,7 +3,6 @@ package com.lucascabral.marvelsuperheroes.presenter.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -22,12 +21,13 @@ class SplashScreenActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         val ironMainAnim: Animation = AnimationUtils.loadAnimation(this, R.anim.iron_man_anim)
-        splashBinding.splashIronMan.animation = ironMainAnim
+        splashBinding.ironManLottieView.animation = ironMainAnim
 
-        Handler().postDelayed({
-            val intent = Intent(applicationContext, AllCharactersActivity::class.java)
+        splashBinding.splashScreen.animate().setDuration(8000).alpha(1f).withEndAction {
+            val intent = Intent(this, AllCharactersActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()
-        }, 8000)
+        }
     }
 }
