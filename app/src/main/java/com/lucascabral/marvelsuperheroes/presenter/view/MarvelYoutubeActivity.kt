@@ -44,7 +44,13 @@ class MarvelYoutubeActivity : AppCompatActivity() {
         binding.youtubeRecyclerView.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@MarvelYoutubeActivity)
-            adapter = YoutubeAdapter(videos)
+            adapter = YoutubeAdapter(videos) { video ->
+                val intent = YoutubePlayerActivity.getStartIntent(
+                    this@MarvelYoutubeActivity,
+                    video.id.videoId
+                )
+                this@MarvelYoutubeActivity.startActivity(intent)
+            }
         }
     }
 

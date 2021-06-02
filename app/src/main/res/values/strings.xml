@@ -9,4 +9,5 @@
     <string name="divisor_content_description">Divisor to items Video</string>
     <string name="default_image_player_content_description">Default image player</string>
     <string name="no_videos_found">No videos found 😓</string>
+    <string name="response_kind_video">youtube#video</string>
 </resources>

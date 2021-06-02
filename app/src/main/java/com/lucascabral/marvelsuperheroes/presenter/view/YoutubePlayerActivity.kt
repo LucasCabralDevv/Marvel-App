@@ -1,5 +1,7 @@
 package com.lucascabral.marvelsuperheroes.presenter.view
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Toast
@@ -17,15 +19,15 @@ class YoutubePlayerActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitialized
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
         playerBinding = ActivityYoutubePlayerBinding.inflate(layoutInflater)
         setContentView(playerBinding.root)
 
-        val bundle: Bundle? = intent.extras
-        bundle?.let {
-            videoId = bundle.getString(VIDEO_ID).toString()
-            playerBinding.youtubePlayer.initialize(BuildConfig.YOUTUBE_KEY, this)
-        }
+        videoId = intent.getStringExtra(VIDEO_ID).toString()
+        playerBinding.youtubePlayer.initialize(BuildConfig.YOUTUBE_KEY, this)
     }
 
     override fun onInitializationSuccess(
@@ -47,5 +49,11 @@ class YoutubePlayerActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitialized
 
     companion object {
         const val VIDEO_ID = "videoId"
+
+        fun getStartIntent(context: Context, videoId: String): Intent {
+            return Intent(context, YoutubePlayerActivity::class.java).apply {
+                putExtra(VIDEO_ID, videoId)
+            }
+        }
     }
 }
