@@ -1,8 +1,9 @@
-# <img src="https://github.com/LucasCabralDevv/Marvel-App/blob/trunk/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png?raw=true" alt="Marvel App Icon" width="50" height="50"> Marvel Super Heroes App
+# <img src="https://github.com/LucasCabralDevv/Marvel-App/blob/trunk/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png?raw=true" alt="Marvel App Icon" width="50" height="50"> Marvel Super Heroes Android App 📱
 <p>
 Learn about your favorite Marvel characters, super heroes, villains and watch videos from official Marvel youtube channel.
 </p>
 
+#### Watch the video below 👇
 [![Marvel Super Heroes Android App](http://img.youtube.com/vi/KsHLYqGTyuQ/0.jpg)](https://www.youtube.com/watch?v=KsHLYqGTyuQ "Marvel Super Heroes App Video")
 
 # Architecture
