@@ -15,7 +15,7 @@ class GetVideosTest {
     private val getVideos = GetVideos(repository)
 
     @Test
-    fun `getVideos return list with success`() = runBlocking {
+    fun `when getVideos return a list with success`() = runBlocking {
         //Given
         coEvery { repository.getVideos() } returns VideosFactory.videos
 
@@ -27,7 +27,7 @@ class GetVideosTest {
     }
 
     @Test
-    fun `getVideos return an exception`() = runBlocking {
+    fun `when getVideos return an exception`() = runBlocking {
         //Given
         coEvery { repository.getVideos() } throws GetVideosException()
 

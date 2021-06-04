@@ -17,19 +17,19 @@ class MarvelYoutubeViewModelTest {
     private val viewModel = MarvelYoutubeViewModel(useCase)
 
     @Test
-    fun `when useCase returns a list with success`() = runBlocking {
-        //Given
-        coEvery { useCase.invoke() } returns VideosFactory.videos
+    fun `when useCase returns a list with success, viewModel videos return notNull`() = runBlocking {
+            //Given
+            coEvery { useCase.invoke() } returns VideosFactory.videos
 
-        //When
-        val result = viewModel.videos.value
+            //When
+            val result = viewModel.videos.value
 
-        //Then
-        assertEquals(result, notNull())
-    }
+            //Then
+            assertEquals(result, notNull())
+        }
 
     @Test
-    fun `when useCase returns a exception`() = runBlocking {
+    fun `when useCase returns a exception, viewModel videos return isNull`() = runBlocking {
         //Given
         coEvery { useCase.invoke() } throws GetVideosException()
 
