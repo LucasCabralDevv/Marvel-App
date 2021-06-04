@@ -5,7 +5,9 @@ import org.junit.runners.Suite
 
 @RunWith(Suite::class)
 @Suite.SuiteClasses(
+    SplashScreenActivityTest::class,
     AllCharactersActivityTest::class,
-    CharacterDetailsActivityTest::class
+    CharacterDetailsActivityTest::class,
+    MarvelYoutubeActivityTest::class
 )
 class ActivityTestSuite

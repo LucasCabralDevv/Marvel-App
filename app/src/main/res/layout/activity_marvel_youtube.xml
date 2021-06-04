@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/main_background"
     android:orientation="vertical"
+    android:id="@+id/marvelYoutubeActivity"
     tools:context=".presenter.view.MarvelYoutubeActivity">
 
     <androidx.recyclerview.widget.RecyclerView

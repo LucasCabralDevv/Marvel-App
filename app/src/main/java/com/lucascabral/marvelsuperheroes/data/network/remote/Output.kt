@@ -17,7 +17,6 @@ fun <R : Any> Response<R>.parseResponse(): Output<R> {
         }
     } else {
         return Output.Failure(code())
-
     }
     return Output.Failure(HttpURLConnection.HTTP_INTERNAL_ERROR)
 }
