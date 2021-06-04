@@ -29,7 +29,7 @@ class MarvelYoutubeViewModelTest {
         }
 
     @Test
-    fun `when useCase returns a exception, viewModel videos return isNull`() = runBlocking {
+    fun `when useCase returns an exception, viewModel videos return isNull`() = runBlocking {
         //Given
         coEvery { useCase.invoke() } throws GetVideosException()
 
