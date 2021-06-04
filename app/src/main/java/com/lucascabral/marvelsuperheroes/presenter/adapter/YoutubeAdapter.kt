@@ -23,16 +23,16 @@ class YoutubeAdapter(
         val video = videos[position]
         val responseKindVideo = holder.itemView.context.getString(R.string.response_kind_video)
         if (video.id.kind == responseKindVideo) {
-            with(holder.binding) {
-                titleTextView.text = video.snippet.title
+            with(holder) {
+                binding.titleTextView.text = video.snippet.title
                 val uri = video.snippet.thumbnails.high.url
-                Glide.with(videoImageView).load(uri).into(videoImageView)
+                Glide.with(binding.videoImageView).load(uri).into(binding.videoImageView)
+
+                itemView.setOnClickListener {
+                    onItemClickListenerVideo.invoke(video)
+                }
             }
         }
-        holder.itemView.setOnClickListener {
-            onItemClickListenerVideo.invoke(video)
-        }
-
     }
 
     override fun getItemCount() = videos.count()
