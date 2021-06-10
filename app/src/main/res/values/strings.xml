@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Marvel Super Heroes</string>
     <string name="character_image_contentDesc">Character image</string>
@@ -6,7 +7,7 @@
     <string name="youtube_title_menu">Marvel Youtube</string>
     <string name="title_youtube_toolbar">Youtube Marvel</string>
     <string name="player_youtube_error">Failed to start the video 😓</string>
-    <string name="divisor_content_description">Divisor to items Video</string>
+    <string name="divisor_content_description">Divisor to videos</string>
     <string name="default_image_player_content_description">Default image player</string>
     <string name="no_videos_found">No videos found 😓</string>
     <string name="response_kind_video">youtube#video</string>
