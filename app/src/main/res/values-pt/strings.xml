@@ -11,4 +11,8 @@
     <string name="default_image_player_content_description">Imagem padrão para player</string>
     <string name="no_videos_found">Nenhum vídeo encontrado 😓</string>
     <string name="response_kind_video">youtube#video</string>
+
+    <string name="alertdialog_close_text">Voltar</string>
+    <string name="alertdialog_message">Gostaria de voltar ou atualizar a busca por vídeos?</string>
+    <string name="alertdialog_retry_text">Atualizar</string>
 </resources>

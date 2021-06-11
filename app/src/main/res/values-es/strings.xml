@@ -11,4 +11,8 @@
     <string name="default_image_player_content_description">Default image player</string>
     <string name="no_videos_found">No se encontraron vídeos 😓</string>
     <string name="response_kind_video">youtube#video</string>
+
+    <string name="alertdialog_close_text">Volver</string>
+    <string name="alertdialog_message">¿Quieres volver o reintentar la búsqueda de vídeos?</string>
+    <string name="alertdialog_retry_text">Reintentar</string>
 </resources>

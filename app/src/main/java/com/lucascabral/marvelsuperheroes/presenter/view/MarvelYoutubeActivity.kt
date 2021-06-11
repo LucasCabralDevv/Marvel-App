@@ -2,9 +2,9 @@ package com.lucascabral.marvelsuperheroes.presenter.view
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.lucascabral.marvelsuperheroes.R
 import com.lucascabral.marvelsuperheroes.databinding.ActivityMarvelYoutubeBinding
 import com.lucascabral.marvelsuperheroes.presenter.adapter.YoutubeAdapter
@@ -25,8 +25,7 @@ class MarvelYoutubeActivity : AppCompatActivity() {
 
         viewModelYoutube.videos.observe(this, { videosList ->
             if (videosList.isEmpty()) {
-                Toast.makeText(this, getString(R.string.no_videos_found), Toast.LENGTH_LONG)
-                    .show()
+                alertDialogEmptyList()
             } else {
                 binding.youtubeProgressBar.visibility = View.GONE
                 setupRecyclerView(videosList)
@@ -38,6 +37,20 @@ class MarvelYoutubeActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return true
+    }
+
+    private fun alertDialogEmptyList() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.no_videos_found)
+            .setMessage(getString(R.string.alertdialog_message))
+            .setNegativeButton(getString(R.string.alertdialog_close_text)) { _, _ ->
+                finish()
+            }
+            .setPositiveButton(getString(R.string.alertdialog_retry_text)) { _, _ ->
+                viewModelYoutube.getVideos()
+            }
+            .setCancelable(false)
+            .show()
     }
 
     private fun setupRecyclerView(videos: List<VideoUiModel>) {
