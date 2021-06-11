@@ -25,7 +25,7 @@ class MarvelYoutubeActivity : AppCompatActivity() {
 
         viewModelYoutube.videos.observe(this, { videosList ->
             if (videosList.isEmpty()) {
-                alertDialogEmptyList()
+                showAlertDialogEmptyList()
             } else {
                 binding.youtubeProgressBar.visibility = View.GONE
                 setupRecyclerView(videosList)
@@ -39,14 +39,14 @@ class MarvelYoutubeActivity : AppCompatActivity() {
         return true
     }
 
-    private fun alertDialogEmptyList() {
+    private fun showAlertDialogEmptyList() {
         MaterialAlertDialogBuilder(this)
-            .setTitle(R.string.no_videos_found)
-            .setMessage(getString(R.string.alertdialog_message))
-            .setNegativeButton(getString(R.string.alertdialog_close_text)) { _, _ ->
+            .setTitle(R.string.alert_dialog_title_text)
+            .setMessage(getString(R.string.alert_dialog_message_text))
+            .setNegativeButton(getString(R.string.alert_dialog_empty_list_close_text)) { _, _ ->
                 finish()
             }
-            .setPositiveButton(getString(R.string.alertdialog_retry_text)) { _, _ ->
+            .setPositiveButton(getString(R.string.alert_dialog_empty_list_retry_text)) { _, _ ->
                 viewModelYoutube.getVideos()
             }
             .setCancelable(false)
