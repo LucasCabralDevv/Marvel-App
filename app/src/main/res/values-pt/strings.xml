@@ -9,6 +9,7 @@
     <string name="player_youtube_error">Falha ao iniciar o vídeo 😓</string>
     <string name="divisor_content_description">Divisor para os vídeos</string>
     <string name="default_image_player_content_description">Imagem padrão para player</string>
+    <string name="splash_marvel_logo_content_desc">Marvel logo</string>
     <string name="response_kind_video">youtube#video</string>
 
     <string name="alert_dialog_title_text">Nenhum vídeo encontrado 😓</string>

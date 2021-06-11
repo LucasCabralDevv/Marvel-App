@@ -17,7 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/marvel_logo1" />
+        app:srcCompat="@drawable/marvel_logo1"
+        android:contentDescription="@string/splash_marvel_logo_content_desc" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/ironManLottieView"
