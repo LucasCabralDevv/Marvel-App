@@ -35,7 +35,7 @@ Learn about your favorite Marvel characters, super heroes, villains and watch vi
 #### Http Request
 + Retrofit 2
 
-#### Internacionalization Languages
+#### Languages
 + English - default
 + Portuguese - PT-BR
 + Spanish
