@@ -12,8 +12,9 @@ Learn about your favorite Marvel characters, super heroes, villains and watch vi
 
 # Main Features
 
-#### Dependency injection
+#### Dependency injection & Test Modules
 + Koin
++ KoinTest
 
 #### Unit tests
 + Junit & Mockk
