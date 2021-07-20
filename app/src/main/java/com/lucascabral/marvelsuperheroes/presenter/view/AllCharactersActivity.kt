@@ -1,18 +1,22 @@
 package com.lucascabral.marvelsuperheroes.presenter.view
 
 import android.content.Intent
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.lucascabral.marvelsuperheroes.R
 import com.lucascabral.marvelsuperheroes.databinding.ActivityAllCharactersBinding
+import com.lucascabral.marvelsuperheroes.helper.NetworkChecker
 import com.lucascabral.marvelsuperheroes.presenter.adapter.AllCharactersAdapter
 import com.lucascabral.marvelsuperheroes.presenter.viewmodel.AllCharactersViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -21,6 +25,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class AllCharactersActivity : AppCompatActivity() {
 
     private val viewModel: AllCharactersViewModel by viewModel()
+    private val networkChecker by lazy {
+        NetworkChecker(ContextCompat.getSystemService(this, ConnectivityManager::class.java))
+    }
     private lateinit var viewBinding: ActivityAllCharactersBinding
     private lateinit var allCharactersAdapter: AllCharactersAdapter
 
@@ -30,7 +37,7 @@ class AllCharactersActivity : AppCompatActivity() {
         setContentView(viewBinding.root)
 
         initRecyclerView()
-        initViewModel()
+        networkChecker.performActionIfConnected { initViewModel() }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -70,10 +77,11 @@ class AllCharactersActivity : AppCompatActivity() {
 
     private fun showEmptyList(listEmpty: Boolean) {
         if (listEmpty) {
-            viewBinding.emptyList.visibility = View.VISIBLE
+            viewBinding.emptyListTextView.visibility = View.VISIBLE
             viewBinding.charactersRecyclerView.visibility = View.GONE
+
         } else {
-            viewBinding.emptyList.visibility = View.GONE
+            viewBinding.emptyListTextView.visibility = View.GONE
             viewBinding.charactersRecyclerView.visibility = View.VISIBLE
         }
     }
