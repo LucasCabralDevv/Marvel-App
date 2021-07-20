@@ -3,7 +3,7 @@
     <string name="app_name">Marvel Super Heroes</string>
     <string name="character_image_contentDesc">Character image</string>
     <string name="character_unknown">There\'s no information about %1$s</string>
-    <string name="no_results">No results 😓</string>
+    <string name="no_results">No results 😓, please check your internet connection</string>
     <string name="youtube_title_menu">Marvel Youtube</string>
     <string name="title_youtube_toolbar">Youtube Marvel</string>
     <string name="player_youtube_error">Failed to start the video 😓</string>

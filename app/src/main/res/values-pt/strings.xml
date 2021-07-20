@@ -3,7 +3,7 @@
     <string name="app_name">Marvel Super Heroes</string>
     <string name="character_image_contentDesc">Imagem do personagem</string>
     <string name="character_unknown">Não há informações sobre %1$s</string>
-    <string name="no_results">Sem resultados 😓</string>
+    <string name="no_results">Sem resultados 😓, por favor verifique sua conexão à internet</string>
     <string name="youtube_title_menu">Marvel Youtube</string>
     <string name="title_youtube_toolbar">Marvel Youtube</string>
     <string name="player_youtube_error">Falha ao iniciar o vídeo 😓</string>
