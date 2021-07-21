@@ -12,10 +12,14 @@
     <string name="splash_marvel_logo_content_desc">Marvel logo</string>
     <string name="response_kind_video">youtube#video</string>
 
+    <!-- AlertDialog -->
     <string name="alert_dialog_title_text">No videos found 😓</string>
     <string name="alert_dialog_message_text">Do you want to go back or retry the videos search?</string>
     <string name="alert_dialog_empty_list_close_text">Close</string>
     <string name="alert_dialog_empty_list_retry_text">Retry</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- ActionBar Labels -->
+    <string name="characters_title_action_bar">Marvel Super Heroes</string>
+    <string name="details_title_action_bar">Details</string>
+    <string name="youtube_title_action_bar">Marvel Youtube</string>
 </resources>

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/allCharactersFragment"
         android:name="com.lucascabral.marvelsuperheroes.presenter.view.AllCharactersFragment"
-        android:label="fragment_all_characters"
+        android:label="@string/characters_title_action_bar"
         tools:layout="@layout/fragment_all_characters" >
         <action
             android:id="@+id/action_allCharactersFragment_to_characterDetailsFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/characterDetailsFragment"
         android:name="com.lucascabral.marvelsuperheroes.presenter.view.CharacterDetailsFragment"
-        android:label="fragment_character_details"
+        android:label="@string/details_title_action_bar"
         tools:layout="@layout/fragment_character_details">
         <argument
             android:name="character"

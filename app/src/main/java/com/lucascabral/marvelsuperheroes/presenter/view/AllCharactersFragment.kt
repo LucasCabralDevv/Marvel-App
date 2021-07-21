@@ -1,9 +1,10 @@
 package com.lucascabral.marvelsuperheroes.presenter.view
 
-import android.content.Intent
 import android.net.ConnectivityManager
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -11,7 +12,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import com.lucascabral.marvelsuperheroes.R
 import com.lucascabral.marvelsuperheroes.databinding.FragmentAllCharactersBinding
 import com.lucascabral.marvelsuperheroes.extension.navigateWithAnimations
 import com.lucascabral.marvelsuperheroes.helper.NetworkChecker
@@ -41,21 +41,6 @@ class AllCharactersFragment : Fragment() {
 
         initRecyclerView()
         networkChecker.performActionIfConnected { initViewModel() }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.marvel_brasil_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.marvelMenu -> {
-                val intent = Intent(context, MarvelYoutubeActivity::class.java)
-                startActivity(intent)
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun initRecyclerView() {

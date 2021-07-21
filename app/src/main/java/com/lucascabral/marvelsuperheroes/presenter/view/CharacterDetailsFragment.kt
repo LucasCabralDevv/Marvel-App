@@ -31,7 +31,8 @@ class CharacterDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupViews()
+        val (uri, description, name) = getDetailsWithSafeArgs()
+        setupViews(uri, description, name)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -39,11 +40,15 @@ class CharacterDetailsFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setupViews() {
+    private fun getDetailsWithSafeArgs(): Triple<String, String, String> {
+        val uri = args.character.thumbnail.path + "." + args.character.thumbnail.extension
+        val description = args.character.description
+        val name = args.character.name
+        return Triple(uri, description, name)
+    }
+
+    private fun setupViews(uri: String, description: String, name: String) {
         binding.apply {
-            val uri = args.character.thumbnail.path+"."+args.character.thumbnail.extension
-            val description = args.character.description
-            val name = args.character.name
             Glide.with(this@CharacterDetailsFragment).load(uri).into(descriptionCharacterImageView)
             if (description.isNullOrEmpty()) {
                 descriptionCharacterTextView.text = getString(R.string.character_unknown, name)

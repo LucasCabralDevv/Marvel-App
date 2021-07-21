@@ -3,6 +3,7 @@ package com.lucascabral.marvelsuperheroes.presenter.view
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.lucascabral.marvelsuperheroes.R
@@ -68,6 +69,7 @@ class MarvelYoutubeActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
+        setSupportActionBar(binding.toolbarYoutube)
         supportActionBar?.apply {
             title = getString(R.string.title_youtube_toolbar)
             setDisplayShowHomeEnabled(true)
