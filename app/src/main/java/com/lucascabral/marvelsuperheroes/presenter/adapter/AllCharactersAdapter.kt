@@ -1,6 +1,5 @@
 package com.lucascabral.marvelsuperheroes.presenter.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -9,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lucascabral.marvelsuperheroes.databinding.ItemCharacterBinding
 import com.lucascabral.marvelsuperheroes.data.network.model.character.Character
-import com.lucascabral.marvelsuperheroes.presenter.view.CharacterDetailsActivity
 
-class AllCharactersAdapter: PagingDataAdapter<Character, AllCharactersAdapter.MyViewHolder>(DiffUtilCallBack()) {
+class AllCharactersAdapter(
+    private val onItemClickListener: ((item: Character) -> Unit)
+): PagingDataAdapter<Character, AllCharactersAdapter.MyViewHolder>(DiffUtilCallBack()) {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = getItem(position)
@@ -31,14 +31,10 @@ class AllCharactersAdapter: PagingDataAdapter<Character, AllCharactersAdapter.My
                 characterName.text = data.name
                 val uri = data.thumbnail.path+"."+data.thumbnail.extension
                 Glide.with(characterImage).load(uri).into(characterImage)
-            }
-            itemView.setOnClickListener {
-                val intent = Intent(it.context, CharacterDetailsActivity::class.java)
-                val uri = data.thumbnail.path+"."+data.thumbnail.extension
-                intent.putExtra(CharacterDetailsActivity.HERO_NAME, data.name)
-                intent.putExtra(CharacterDetailsActivity.HERO_DESCRIPTION, data.description)
-                intent.putExtra(CharacterDetailsActivity.HERO_URI, uri)
-                it.context.startActivity(intent)
+
+                itemView.setOnClickListener {
+                    onItemClickListener.invoke(data)
+                }
             }
         }
     }

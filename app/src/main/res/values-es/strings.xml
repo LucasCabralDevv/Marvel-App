@@ -12,8 +12,14 @@
     <string name="splash_marvel_logo_content_desc">Marvel logo</string>
     <string name="response_kind_video">youtube#video</string>
 
+    <!-- AlertDialog -->
     <string name="alert_dialog_title_text">No se encontraron vídeos 😓</string>
     <string name="alert_dialog_message_text">¿Quieres volver o reintentar la búsqueda de vídeos?</string>
     <string name="alert_dialog_empty_list_close_text">Volver</string>
     <string name="alert_dialog_empty_list_retry_text">Reintentar</string>
+
+    <!-- ActionBar Labels -->
+    <string name="characters_title_action_bar">Marvel Super Heroes</string>
+    <string name="details_title_action_bar">Detalles</string>
+    <string name="youtube_title_action_bar">Marvel Youtube</string>
 </resources>

@@ -8,6 +8,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.lucascabral.marvelsuperheroes.R
 import com.lucascabral.marvelsuperheroes.databinding.ActivitySplashScreenBinding
+import com.lucascabral.marvelsuperheroes.presenter.NavigationActivity
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -24,7 +25,7 @@ class SplashScreenActivity : AppCompatActivity() {
         splashBinding.ironManLottieView.animation = ironMainAnim
 
         splashBinding.splashScreen.animate().setDuration(8000).alpha(1f).withEndAction {
-            val intent = Intent(this, AllCharactersActivity::class.java)
+            val intent = Intent(this, NavigationActivity::class.java)
             startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()

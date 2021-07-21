@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -48,6 +49,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "com.google.android.material:material:$material_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation "androidx.test.ext:junit:$junit_version"
@@ -74,6 +76,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_ex_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_vm_version"
 
+    //Navigation Dependencies
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
     // Paging3 Dependency
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
@@ -86,3 +92,4 @@ dependencies {
     // Lottie Dependency
     implementation "com.airbnb.android:lottie:$lottie_version"
 }
+apply plugin: "androidx.navigation.safeargs.kotlin"
