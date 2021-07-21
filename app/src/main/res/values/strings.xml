@@ -16,4 +16,6 @@
     <string name="alert_dialog_message_text">Do you want to go back or retry the videos search?</string>
     <string name="alert_dialog_empty_list_close_text">Close</string>
     <string name="alert_dialog_empty_list_retry_text">Retry</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

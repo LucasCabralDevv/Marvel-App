@@ -20,6 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MarvelSuperHeroes"
         android:usesCleartextTraffic="true">
+        <activity android:name=".presenter.NavigationActivity"></activity>
         <activity
             android:name=".presenter.view.AllCharactersActivity"
             android:screenOrientation="portrait" />
