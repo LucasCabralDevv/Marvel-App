@@ -20,20 +20,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MarvelSuperHeroes"
         android:usesCleartextTraffic="true">
-        <activity android:name=".presenter.NavigationActivity"></activity>
-        <activity
-            android:name=".presenter.view.AllCharactersActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".presenter.NavigationActivity"/>
         <activity
             android:name=".presenter.view.YoutubePlayerActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name=".presenter.view.MarvelYoutubeActivity"
-            android:parentActivityName=".presenter.view.AllCharactersActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".presenter.view.CharacterDetailsActivity"
-            android:parentActivityName=".presenter.view.AllCharactersActivity"
+            android:parentActivityName=".presenter.NavigationActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".presenter.view.SplashScreenActivity"
