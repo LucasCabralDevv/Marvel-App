@@ -40,6 +40,7 @@ class AllCharactersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initRecyclerView()
+        setRefreshListener()
         networkChecker.performActionIfConnected { initViewModel() }
     }
 
@@ -75,8 +76,15 @@ class AllCharactersFragment : Fragment() {
         }
     }
 
+    private fun setRefreshListener() {
+        binding.allCharactersRefresh.setOnRefreshListener {
+            initViewModel()
+        }
+    }
+
     private fun initViewModel() {
         lifecycleScope.launchWhenCreated {
+            binding.allCharactersRefresh.isRefreshing = false
             viewModel.getListData().collectLatest { pagingData ->
                 allCharactersAdapter.submitData(pagingData)
             }

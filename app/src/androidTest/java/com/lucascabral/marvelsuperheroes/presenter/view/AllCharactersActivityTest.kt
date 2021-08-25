@@ -15,8 +15,8 @@ class AllCharactersActivityTest {
 
     @Test
     fun test_isActivityInView() {
-        val activityScenario = ActivityScenario.launch(AllCharactersActivity::class.java)
-        onView(withId(R.id.allCharactersActivity)).check(matches(isDisplayed()))
+        val activityScenario = ActivityScenario.launch(AllCharactersFragment::class.java)
+        onView(withId(R.id.allCharactersFragment)).check(matches(isDisplayed()))
     }
 
     @Test
