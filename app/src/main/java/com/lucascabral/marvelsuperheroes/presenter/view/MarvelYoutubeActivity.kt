@@ -2,10 +2,12 @@ package com.lucascabral.marvelsuperheroes.presenter.view
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.MobileAds
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.lucascabral.marvelsuperheroes.R
@@ -18,6 +20,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MarvelYoutubeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMarvelYoutubeBinding
+    private lateinit var interstitialAd: InterstitialAd
     private val viewModelYoutube: MarvelYoutubeViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +50,33 @@ class MarvelYoutubeActivity : AppCompatActivity() {
     private fun initMobileAds() {
         MobileAds.initialize(this)
         val adRequest = AdRequest.Builder().build()
-        binding.youtubeAdView.loadAd(adRequest)
+        binding.apply {
+            youtubeAdView.loadAd(adRequest)
+
+            interstitialAd = InterstitialAd(this@MarvelYoutubeActivity)
+            interstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
+            interstitialAd.loadAd(AdRequest.Builder().build())
+
+            youtubeAdView.adListener = object : AdListener() {
+
+                override fun onAdLoaded() {
+                }
+
+                override fun onAdOpened() {
+                    if (interstitialAd.isLoaded)
+                        interstitialAd.show()
+                    else
+                        Toast.makeText(
+                            this@MarvelYoutubeActivity,
+                            "Error interstitial",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                }
+
+                override fun onAdClosed() {
+                }
+            }
+        }
     }
 
     private fun showAlertDialogEmptyList() {
