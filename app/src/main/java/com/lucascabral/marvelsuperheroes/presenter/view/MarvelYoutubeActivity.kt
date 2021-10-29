@@ -5,6 +5,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.lucascabral.marvelsuperheroes.R
 import com.lucascabral.marvelsuperheroes.databinding.ActivityMarvelYoutubeBinding
@@ -24,6 +26,8 @@ class MarvelYoutubeActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupToolbar()
 
+        initMobileAds()
+
         viewModelYoutube.videos.observe(this, { videosList ->
             if (videosList.isEmpty()) {
                 showAlertDialogEmptyList()
@@ -38,6 +42,12 @@ class MarvelYoutubeActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return true
+    }
+
+    private fun initMobileAds() {
+        MobileAds.initialize(this)
+        val adRequest = AdRequest.Builder().build()
+        binding.youtubeAdView.loadAd(adRequest)
     }
 
     private fun showAlertDialogEmptyList() {
