@@ -20,6 +20,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MarvelSuperHeroes"
         android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9319743027619704~3913863772"/>
+
         <activity android:name=".presenter.NavigationActivity"/>
         <activity
             android:name=".presenter.view.YoutubePlayerActivity"

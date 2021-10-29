@@ -91,5 +91,8 @@ dependencies {
 
     // Lottie Dependency
     implementation "com.airbnb.android:lottie:$lottie_version"
+
+    // AdMob Dependency
+    implementation "com.google.android.gms:play-services-ads:$admob_version"
 }
 apply plugin: "androidx.navigation.safeargs.kotlin"
