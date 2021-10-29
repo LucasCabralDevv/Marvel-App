@@ -1,6 +1,7 @@
 package com.lucascabral.marvelsuperheroes.presenter.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -50,33 +51,7 @@ class MarvelYoutubeActivity : AppCompatActivity() {
     private fun initMobileAds() {
         MobileAds.initialize(this)
         val adRequest = AdRequest.Builder().build()
-        binding.apply {
-            youtubeAdView.loadAd(adRequest)
-
-            interstitialAd = InterstitialAd(this@MarvelYoutubeActivity)
-            interstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
-            interstitialAd.loadAd(AdRequest.Builder().build())
-
-            youtubeAdView.adListener = object : AdListener() {
-
-                override fun onAdLoaded() {
-                }
-
-                override fun onAdOpened() {
-                    if (interstitialAd.isLoaded)
-                        interstitialAd.show()
-                    else
-                        Toast.makeText(
-                            this@MarvelYoutubeActivity,
-                            "Error interstitial",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                }
-
-                override fun onAdClosed() {
-                }
-            }
-        }
+        binding.youtubeAdView.loadAd(adRequest)
     }
 
     private fun showAlertDialogEmptyList() {
@@ -98,11 +73,32 @@ class MarvelYoutubeActivity : AppCompatActivity() {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@MarvelYoutubeActivity)
             adapter = YoutubeAdapter(videos) { video ->
+                initInterstitialAd()
                 val intent = YoutubePlayerActivity.getStartIntent(
                     this@MarvelYoutubeActivity,
                     video.id.videoId
                 )
                 this@MarvelYoutubeActivity.startActivity(intent)
+            }
+        }
+    }
+
+    private fun initInterstitialAd() {
+        binding.run {
+            interstitialAd = InterstitialAd(this@MarvelYoutubeActivity)
+            interstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
+            interstitialAd.loadAd(AdRequest.Builder().build())
+            interstitialAd.adListener = object : AdListener() {
+                override fun onAdLoaded() {
+                    if (interstitialAd.isLoaded) {
+                        interstitialAd.show()
+                    } else {
+                        Log.e("InterstitialAd_Error", "Error Interstitial Impl")
+                    }
+                }
+                override fun onAdClosed() {
+                    Log.d("InterstitialAd_Closed", "Interstitial Closed")
+                }
             }
         }
     }
