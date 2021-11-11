@@ -12,6 +12,9 @@
     <string name="splash_marvel_logo_content_desc">Marvel logo</string>
     <string name="response_kind_video">youtube#video</string>
 
+    <!-- Comics Fragment -->
+    <string name="details_comics_text_button">COMICS</string>
+
     <!-- AlertDialog -->
     <string name="alert_dialog_title_text">No videos found 😓</string>
     <string name="alert_dialog_message_text">Do you want to go back or retry the videos search?</string>
@@ -22,4 +25,5 @@
     <string name="characters_title_action_bar">Marvel Super Heroes</string>
     <string name="details_title_action_bar">Details</string>
     <string name="youtube_title_action_bar">Marvel Youtube</string>
+    <string name="comics_title_action_bar">Comics</string>
 </resources>
