@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -12,6 +13,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.lucascabral.marvelsuperheroes.R
 import com.lucascabral.marvelsuperheroes.databinding.FragmentCharacterDetailsBinding
+import com.lucascabral.marvelsuperheroes.extension.navigateWithAnimations
 
 class CharacterDetailsFragment : Fragment() {
 
@@ -33,6 +35,10 @@ class CharacterDetailsFragment : Fragment() {
 
         val (uri, description, name) = getDetailsWithSafeArgs()
         setupViews(uri, description, name)
+
+        binding.detailsCharacterComicsButton.setOnClickListener {
+            navController.navigateWithAnimations(R.id.action_characterDetailsFragment_to_comicsFragment)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -49,11 +55,12 @@ class CharacterDetailsFragment : Fragment() {
 
     private fun setupViews(uri: String, description: String, name: String) {
         binding.apply {
-            Glide.with(this@CharacterDetailsFragment).load(uri).into(descriptionCharacterImageView)
+            Glide.with(this@CharacterDetailsFragment).load(uri).into(detailsCharacterThumbImageView)
+            detailsCharacterNameTextView.text = name
             if (description.isNullOrEmpty()) {
-                descriptionCharacterTextView.text = getString(R.string.character_unknown, name)
+                detailsCharacterDescriptionTextView.text = getString(R.string.character_unknown, name)
             } else {
-                descriptionCharacterTextView.text = description
+                detailsCharacterDescriptionTextView.text = description
             }
         }
     }

@@ -23,7 +23,7 @@ class CharacterDetailsActivityTest {
 
     @Test
     fun test_visibility_views() {
-        onView(withId(R.id.descriptionCharacterImageView)).check(matches(isDisplayed()))
-        onView(withId(R.id.descriptionCharacterTextView)).check(matches(isDisplayed()))
+        onView(withId(R.id.detailsCharacterThumbImageView)).check(matches(isDisplayed()))
+        onView(withId(R.id.detailsCharacterDescriptionTextView)).check(matches(isDisplayed()))
     }
 }
