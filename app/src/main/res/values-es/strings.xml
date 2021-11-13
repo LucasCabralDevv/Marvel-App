@@ -15,6 +15,10 @@
     <!-- Comics Fragment -->
     <string name="details_comics_text_button">COMICS</string>
 
+    <!-- MotionLayout Scenes -->
+    <string name="comic_text_button_start">CÓMICS</string>
+    <string name="comic_text_button_end">DETALLES</string>
+
     <!-- AlertDialog -->
     <string name="alert_dialog_title_text">No se encontraron vídeos 😓</string>
     <string name="alert_dialog_message_text">¿Quieres volver o reintentar la búsqueda de vídeos?</string>

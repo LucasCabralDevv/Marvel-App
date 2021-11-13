@@ -5,20 +5,24 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.lucascabral.marvelsuperheroes.R
+import com.lucascabral.marvelsuperheroes.data.network.model.comics.Comic
 import com.lucascabral.marvelsuperheroes.databinding.FragmentCharacterDetailsBinding
-import com.lucascabral.marvelsuperheroes.extension.navigateWithAnimations
+import com.lucascabral.marvelsuperheroes.presenter.adapter.ComicsAdapter
+import com.lucascabral.marvelsuperheroes.presenter.viewmodel.CharacterDetailsViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CharacterDetailsFragment : Fragment() {
 
     val args: CharacterDetailsFragmentArgs by navArgs()
     private lateinit var binding: FragmentCharacterDetailsBinding
+    private val viewModel: CharacterDetailsViewModel by viewModel()
     private val navController: NavController by lazy {
         findNavController()
     }
@@ -36,20 +40,15 @@ class CharacterDetailsFragment : Fragment() {
         val (uri, description, name) = getDetailsWithSafeArgs()
         setupViews(uri, description, name)
 
-        //handleDirections()
+        viewModel.comics.observe(viewLifecycleOwner) { comicList ->
+            populateRecyclerView(comicList)
+        }
+        viewModel.getComicsByCharacterId(args.character.id)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         navController.popBackStack(R.id.allCharactersFragment, false)
         return super.onOptionsItemSelected(item)
-    }
-
-    private fun handleDirections() {
-        binding.detailsCharacterComicsButton.setOnClickListener {
-            val directions = CharacterDetailsFragmentDirections
-                .actionCharacterDetailsFragmentToComicsFragment(args.character)
-            navController.navigateWithAnimations(directions)
-        }
     }
 
     private fun getDetailsWithSafeArgs(): Triple<String, String, String> {
@@ -68,6 +67,13 @@ class CharacterDetailsFragment : Fragment() {
             } else {
                 detailsCharacterDescriptionTextView.text = description
             }
+        }
+    }
+
+    private fun populateRecyclerView(comicList: List<Comic>) {
+        binding.detailsCharacterRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            adapter = ComicsAdapter(comicList)
         }
     }
 }

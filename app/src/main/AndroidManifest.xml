@@ -25,7 +25,9 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-9319743027619704~3913863772"/>
 
-        <activity android:name=".presenter.NavigationActivity"/>
+        <activity
+            android:name=".presenter.NavigationActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".presenter.view.YoutubePlayerActivity"
             android:screenOrientation="landscape" />

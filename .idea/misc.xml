@@ -3,9 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lucas Cabral/AndroidStudioProjects/MarvelSuperHeroes/app/src/main/res/drawable/bg_button_details.xml" value="0.11574074074074074" />
+        <entry key="..\:/Users/Lucas Cabral/AndroidStudioProjects/MarvelSuperHeroes/app/src/main/res/drawable/bg_image_comics.xml" value="0.11574074074074074" />
         <entry key="..\:/Users/Lucas Cabral/AndroidStudioProjects/MarvelSuperHeroes/app/src/main/res/layout/activity_marvel_youtube.xml" value="0.2037037037037037" />
         <entry key="..\:/Users/Lucas Cabral/AndroidStudioProjects/MarvelSuperHeroes/app/src/main/res/layout/activity_navigation.xml" value="0.19444444444444445" />
         <entry key="..\:/Users/Lucas Cabral/AndroidStudioProjects/MarvelSuperHeroes/app/src/main/res/layout/fragment_all_characters.xml" value="0.19444444444444445" />
+        <entry key="..\:/Users/Lucas Cabral/AndroidStudioProjects/MarvelSuperHeroes/app/src/main/res/layout/fragment_character_details.xml" value="0.21388888888888888" />
+        <entry key="..\:/Users/Lucas Cabral/AndroidStudioProjects/MarvelSuperHeroes/app/src/main/res/layout/fragment_character_details_scene_end.xml" value="0.2" />
+        <entry key="..\:/Users/Lucas Cabral/AndroidStudioProjects/MarvelSuperHeroes/app/src/main/res/layout/fragment_character_details_scene_start.xml" value="0.1" />
+        <entry key="..\:/Users/Lucas Cabral/AndroidStudioProjects/MarvelSuperHeroes/app/src/main/res/layout/fragment_comics.xml" value="0.2212962962962963" />
+        <entry key="..\:/Users/Lucas Cabral/AndroidStudioProjects/MarvelSuperHeroes/app/src/main/res/layout/item_character.xml" value="0.264" />
+        <entry key="..\:/Users/Lucas Cabral/AndroidStudioProjects/MarvelSuperHeroes/app/src/main/res/layout/item_comic.xml" value="0.264" />
       </map>
     </option>
   </component>

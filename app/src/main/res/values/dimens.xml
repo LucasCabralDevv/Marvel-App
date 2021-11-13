@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="details_character_description_start_size">18sp</dimen>
+    <dimen name="details_character_description_end_size">2sp</dimen>
+</resources>

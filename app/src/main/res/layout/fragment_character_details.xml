@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_background"
-    tools:context=".presenter.view.CharacterDetailsFragment"
-    app:layoutDescription="@xml/fragment_character_details_scene">
+    app:layoutDescription="@xml/fragment_character_details_scene"
+    tools:context=".presenter.view.CharacterDetailsFragment">
 
     <ImageView
         android:id="@+id/detailsCharacterThumbImageView"
@@ -27,22 +27,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        tools:text="Hulk"
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detailsCharacterThumbImageView"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailsCharacterThumbImageView"
+        tools:text="Hulk" />
 
     <TextView
         android:id="@+id/detailsCharacterDescriptionTextView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
+        android:alpha="1"
         android:textColor="@color/black"
+        android:textSize="@dimen/details_character_description_start_size"
+        app:layout_constraintBottom_toTopOf="@id/detailsCharacterComicsButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailsCharacterNameTextView"
@@ -51,25 +54,28 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/detailsCharacterRecyclerView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
+        android:alpha="0"
+        app:layout_constraintBottom_toTopOf="@id/detailsCharacterComicsButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/detailsCharacterDescriptionTextView"
-        app:layout_constraintTop_toBottomOf="@+id/detailsCharacterNameTextView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailsCharacterNameTextView"
+        tools:listitem="@layout/item_comic" />
 
     <Button
         android:id="@+id/detailsCharacterComicsButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
-        android:text="@string/details_comics_text_button"
-        android:textStyle="bold"
         android:layout_marginBottom="20dp"
         android:background="@drawable/bg_button_details"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/comic_text_button_start"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.motion.widget.MotionLayout>
