@@ -31,5 +31,10 @@
         android:id="@+id/comicsFragment"
         android:name="com.lucascabral.marvelsuperheroes.presenter.view.ComicsFragment"
         android:label="@string/comics_title_action_bar"
-        tools:layout="@layout/fragment_comics" />
+        tools:layout="@layout/fragment_comics">
+        <argument
+            android:name="character"
+            app:argType="com.lucascabral.marvelsuperheroes.data.network.model.character.Character"
+            app:nullable="false" />
+    </fragment>
 </navigation>

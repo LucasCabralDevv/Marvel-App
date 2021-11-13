@@ -94,5 +94,8 @@ dependencies {
 
     // AdMob Dependency
     implementation "com.google.android.gms:play-services-ads:$admob_version"
+
+    //DataStore Dependency
+    implementation("androidx.datastore:datastore-preferences:$datastore_preferences")
 }
 apply plugin: "androidx.navigation.safeargs.kotlin"

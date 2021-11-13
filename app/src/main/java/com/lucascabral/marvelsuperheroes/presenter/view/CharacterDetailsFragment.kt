@@ -36,14 +36,20 @@ class CharacterDetailsFragment : Fragment() {
         val (uri, description, name) = getDetailsWithSafeArgs()
         setupViews(uri, description, name)
 
-        binding.detailsCharacterComicsButton.setOnClickListener {
-            navController.navigateWithAnimations(R.id.action_characterDetailsFragment_to_comicsFragment)
-        }
+        //handleDirections()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         navController.popBackStack(R.id.allCharactersFragment, false)
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun handleDirections() {
+        binding.detailsCharacterComicsButton.setOnClickListener {
+            val directions = CharacterDetailsFragmentDirections
+                .actionCharacterDetailsFragmentToComicsFragment(args.character)
+            navController.navigateWithAnimations(directions)
+        }
     }
 
     private fun getDetailsWithSafeArgs(): Triple<String, String, String> {
@@ -57,7 +63,7 @@ class CharacterDetailsFragment : Fragment() {
         binding.apply {
             Glide.with(this@CharacterDetailsFragment).load(uri).into(detailsCharacterThumbImageView)
             detailsCharacterNameTextView.text = name
-            if (description.isNullOrEmpty()) {
+            if (description.isEmpty()) {
                 detailsCharacterDescriptionTextView.text = getString(R.string.character_unknown, name)
             } else {
                 detailsCharacterDescriptionTextView.text = description

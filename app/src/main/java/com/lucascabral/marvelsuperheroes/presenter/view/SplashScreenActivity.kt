@@ -24,10 +24,10 @@ class SplashScreenActivity : AppCompatActivity() {
         val ironMainAnim: Animation = AnimationUtils.loadAnimation(this, R.anim.iron_man_anim)
         splashBinding.ironManLottieView.animation = ironMainAnim
 
-        splashBinding.splashScreen.animate().setDuration(8000).alpha(1f).withEndAction {
+        splashBinding.splashScreen.animate().setDuration(4000).alpha(1f).withEndAction {
             val intent = Intent(this, NavigationActivity::class.java)
-            startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+            startActivity(intent)
             finish()
         }
     }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@layout/fragment_character_details_scene_end"
+        motion:constraintSetStart="@layout/fragment_character_details_scene_start"
+        motion:duration="1500">
+        <KeyFrameSet>
+        </KeyFrameSet>
+        <OnClick motion:targetId="@+id/detailsCharacterComicsButton" />
+    </Transition>
+</MotionScene>

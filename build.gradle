@@ -22,6 +22,7 @@ buildscript {
         lottie_version = "3.4.0"
         nav_version = "2.3.4"
         admob_version = "19.3.0"
+        datastore_preferences = "1.0.0"
     }
     repositories {
         google()
