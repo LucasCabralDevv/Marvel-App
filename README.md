@@ -34,6 +34,7 @@ Learn about your favorite Marvel characters, super heroes, villains and watch vi
 + Glide
 + Lottie
 + Google AdMob
++ MotionLayout
 
 #### Http Request
 + Retrofit 2
