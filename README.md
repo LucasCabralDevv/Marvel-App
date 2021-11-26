@@ -24,7 +24,7 @@ Learn about your favorite Marvel characters, super heroes, villains and watch vi
 
 #### Android Jetpack
 + Paging3
-+ Navigation
++ Navigation - safeargs
 + LiveData & Flow
 + Caching with Room (coming soon)
 
