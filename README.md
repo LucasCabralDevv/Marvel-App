@@ -26,7 +26,7 @@ Learn about your favorite Marvel characters, super heroes, villains and watch vi
 + Paging3
 + Navigation - safeargs
 + LiveData & Flow
-+ Caching with Room (coming soon)
++ Cache with Room (coming soon)
 
 #### Another APIs
 + Kotlin Coroutines
