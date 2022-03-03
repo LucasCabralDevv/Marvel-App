@@ -33,16 +33,16 @@ class MarvelYoutubeActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupToolbar()
 
-        initInterstitialAd()
+        //initInterstitialAd()
 
-        viewModelYoutube.videos.observe(this, { videosList ->
+        viewModelYoutube.videos.observe(this) { videosList ->
             if (videosList.isEmpty()) {
                 showAlertDialogEmptyList()
             } else {
                 binding.youtubeProgressBar.visibility = View.GONE
                 setupRecyclerView(videosList)
             }
-        })
+        }
         viewModelYoutube.getVideos()
     }
 
@@ -76,7 +76,7 @@ class MarvelYoutubeActivity : AppCompatActivity() {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@MarvelYoutubeActivity)
             adapter = YoutubeAdapter(videos) { video ->
-                initRewardedVideoAd()
+                //initRewardedVideoAd()
                 val intent = YoutubePlayerActivity.getStartIntent(
                     this@MarvelYoutubeActivity,
                     video.id.videoId
