@@ -7,25 +7,35 @@ import com.lucascabral.marvelsuperheroes.data.network.model.character.Character
 
 class CharacterPagingSource(private val apiService: MarvelService): PagingSource<Int, Character>() {
 
-    override fun getRefreshKey(state: PagingState<Int, Character>): Int? {
-        return state.anchorPosition
-    }
-
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Character> {
         return try {
+            val offset = params.key ?: 0
 
-            val page: Int = params.key ?: FIRST_PAGE_INDEX
-            val response = apiService.getCharacters(page)
-            val nextPage: Int = response.data.offset + 1
+            val response = apiService.getCharacters(offset)
+            val responseOffset = response.data.offset
+            val totalCharacters = response.data.total
 
-            LoadResult.Page(data = response.data.results, prevKey = null, nextKey = nextPage)
+            LoadResult.Page(
+                data = response.data.results,
+                prevKey = null,
+                nextKey = if (responseOffset < totalCharacters) {
+                    responseOffset + LIMIT
+                } else null
+            )
 
-        } catch (e: Exception) {
-            LoadResult.Error(e)
+        }catch (exception: Exception) {
+            LoadResult.Error(exception)
+        }
+    }
+
+    override fun getRefreshKey(state: PagingState<Int, Character>): Int? {
+        return state.anchorPosition?.let { anchorPosition ->
+            val anchorPage = state.closestPageToPosition(anchorPosition)
+            anchorPage?.prevKey?.plus(LIMIT) ?: anchorPage?.nextKey?.minus(LIMIT)
         }
     }
 
     companion object {
-        private const val FIRST_PAGE_INDEX = 1
+        private const val LIMIT = 20
     }
 }
